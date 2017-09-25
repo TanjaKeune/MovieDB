@@ -6,11 +6,13 @@
 //  Copyright © 2017 SUGAPP. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public struct Movie {
     
     static let APIKEY = "7565954194cd86a454cc1353a50b1a93"
+    private static let imageBaseURL = "https://image.tmdb.org/t/p/w500"
+    
     public var title: String!
     public var imagePath: String!
     public var description: String!
@@ -22,7 +24,7 @@ public struct Movie {
         
     }
     
-    private static func getMoviewData (with completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+    private static func getMovieData (with completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
         
         let session = URLSession(configuration: .default)
         let request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(APIKEY)")!)
@@ -40,9 +42,104 @@ public struct Movie {
     
     public static func nowPlaying (with completion: @escaping (_ sucesss: Bool, _ movies: [Movie]?) -> () ) {
         
-        Movie.getMoviewData { (success, object) in
+        Movie.getMovieData { (success, object) in
             
-            print(object)
+            if success {
+                
+                var movieArray = [Movie]()
+                
+                if let movieResults = object?["results"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for movie in movieResults {
+                        
+                        let title = movie["original_title"] as! String
+                        let description = movie["overview"] as! String
+                        guard let posterImage = movie["poster_path"] as? String else {
+                            continue
+                        }
+                        
+                        let movieObj = Movie(title: title, imagePath: posterImage, description: description)
+                        movieArray.append(movieObj)
+                    }
+                    completion(true, movieArray)
+                    
+                } else {
+                    completion(false, nil)
+                }
+            }
         }
     }
+    
+    private static func getDocumentsDirectory () -> String? {
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        guard let documents: String = paths.first else {return nil}
+        
+        return documents
+    }
+    
+    private static func checkForImageData(withMovieObject movie: Movie) -> String? {
+        
+        if let documents = getDocumentsDirectory() {
+            
+            let movieImagePath = documents + "/\(movie.title!)"
+            
+            let escapedImagesPath = movieImagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            
+            if FileManager.default.fileExists(atPath: escapedImagesPath!) {
+                
+                return escapedImagesPath
+            }
+            
+        }
+        return nil
+    }
+    
+    public static func getImage (forCell cell: AnyObject, withMovieObject movie: Movie) {
+        if let imagePath = checkForImageData(withMovieObject: movie) {
+//            image already downloaded
+            if let imageData = FileManager.default.contents(atPath: imagePath) {
+                if cell is UITableViewCell {
+                    let tableViewCell = cell as! UITableViewCell
+                    tableViewCell.imageView?.image = UIImage(data: imageData)
+                    tableViewCell.setNeedsLayout()
+                } else {
+//                    Add CollectionViewCEll Implementation
+                }
+            }
+            
+        } else {
+//            we have to download an image and save it on the disk
+            let imagePath = Movie.imageBaseURL + movie.imagePath
+            
+            let imageURL = URL(string: imagePath)
+            
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+                do {
+                    let data = try Data(contentsOf: imageURL!)
+                    let documents = getDocumentsDirectory()
+                    let imageFilePathString = documents! + "/\(movie.title!)"
+                    let escapedImagePath = imageFilePathString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                    
+                    if FileManager.default.createFile(atPath: escapedImagePath, contents: data, attributes: nil) {
+                        print("Image saved")
+                    }
+                    DispatchQueue.main.async(execute: {
+                        if cell is UITableViewCell {
+                            let tableViewCell = cell as! UITableViewCell
+                            tableViewCell.imageView?.image = UIImage(data: data)
+                            tableViewCell.setNeedsLayout()
+                        } else {
+//                            add collection view cell implementation
+                        }
+                    })
+                    
+                } catch {
+                    print("No image at specified location")
+                }
+            }
+            
+        }
+    }
+    
 }
