@@ -105,6 +105,9 @@ public struct Movie {
                     tableViewCell.setNeedsLayout()
                 } else {
 //                    Add CollectionViewCEll Implementation
+                    let collectionViewCell = cell as! MovieCollectionViewCell
+                    collectionViewCell.movieImageView.image = UIImage(data: imageData)
+                    collectionViewCell.setNeedsLayout()
                 }
             }
             
@@ -131,6 +134,10 @@ public struct Movie {
                             tableViewCell.setNeedsLayout()
                         } else {
 //                            add collection view cell implementation
+                            let collectionViewCell = cell as! MovieCollectionViewCell
+                            collectionViewCell.movieImageView.image = UIImage(data: data)
+                            collectionViewCell.setNeedsLayout()
+                            
                         }
                     })
                     

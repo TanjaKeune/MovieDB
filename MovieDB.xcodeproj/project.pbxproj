@@ -13,6 +13,8 @@
 		9B625D021F7762B90073E86F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B625D001F7762B90073E86F /* LaunchScreen.storyboard */; };
 		9B625D0A1F7764270073E86F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B625D091F7764270073E86F /* TableViewController.swift */; };
 		9B625D0C1F7815860073E86F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B625D0B1F7815860073E86F /* Movie.swift */; };
+		9B625D0E1F79B17F0073E86F /* MovieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B625D0D1F79B17F0073E86F /* MovieCollectionViewController.swift */; };
+		9B625D101F79B19D0073E86F /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B625D0F1F79B19D0073E86F /* MovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9B625D031F7762B90073E86F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B625D091F7764270073E86F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9B625D0B1F7815860073E86F /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		9B625D0D1F79B17F0073E86F /* MovieCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewController.swift; sourceTree = "<group>"; };
+		9B625D0F1F79B19D0073E86F /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,9 @@
 				9B625D091F7764270073E86F /* TableViewController.swift */,
 				9B625CFB1F7762B90073E86F /* Main.storyboard */,
 				9B625D0B1F7815860073E86F /* Movie.swift */,
+				9B625D0D1F79B17F0073E86F /* MovieCollectionViewController.swift */,
 				9B625CFE1F7762B90073E86F /* Assets.xcassets */,
+				9B625D0F1F79B19D0073E86F /* MovieCollectionViewCell.swift */,
 				9B625D001F7762B90073E86F /* LaunchScreen.storyboard */,
 				9B625D031F7762B90073E86F /* Info.plist */,
 			);
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B625D0A1F7764270073E86F /* TableViewController.swift in Sources */,
+				9B625D0E1F79B17F0073E86F /* MovieCollectionViewController.swift in Sources */,
+				9B625D101F79B19D0073E86F /* MovieCollectionViewCell.swift in Sources */,
 				9B625CF81F7762B90073E86F /* AppDelegate.swift in Sources */,
 				9B625D0C1F7815860073E86F /* Movie.swift in Sources */,
 			);
