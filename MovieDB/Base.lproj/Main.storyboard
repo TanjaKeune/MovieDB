@@ -105,7 +105,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nws-vq-CJ9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nws-vq-CJ9">
                                 <rect key="frame" x="16" y="53" width="343" height="95"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -127,6 +127,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="eLL-uk-Edg" secondAttribute="leading" id="4Rx-lK-wNL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eLL-uk-Edg" secondAttribute="trailing" id="HZX-gu-VKf"/>
                             <constraint firstItem="eLL-uk-Edg" firstAttribute="top" secondItem="6Ut-gz-Jk2" secondAttribute="bottom" constant="-5" id="WuX-4t-8lL"/>
+                            <constraint firstItem="shX-VN-jFq" firstAttribute="top" secondItem="nws-vq-CJ9" secondAttribute="bottom" constant="52" id="XzD-Q6-U6E"/>
                             <constraint firstAttribute="leadingMargin" secondItem="nws-vq-CJ9" secondAttribute="leading" id="hTJ-ki-oCv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nws-vq-CJ9" secondAttribute="trailing" id="k1u-2K-hqv"/>
                             <constraint firstItem="nws-vq-CJ9" firstAttribute="top" secondItem="eLL-uk-Edg" secondAttribute="bottom" constant="17" id="p6x-bB-kcZ"/>

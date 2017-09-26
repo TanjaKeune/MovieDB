@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MovieSelectrBridge
 
 class OverlayViewController: UIViewController {
 

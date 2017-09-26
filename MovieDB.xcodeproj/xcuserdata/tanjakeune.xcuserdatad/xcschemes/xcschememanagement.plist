@@ -9,9 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MovieSelectrBridge.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>MovieSelectrExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9B5F03981F7AE18200BAB1FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B5F03AF1F7AE2DA00BAB1FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9B625CF31F7762B90073E86F</key>
 		<dict>
 			<key>primary</key>
